@@ -9,9 +9,8 @@
 Innovator inn = this.newInnovator();
 Item wfl = this.newItem("Workflow","get");
 wfl.setProperty("source_id",this.getID());
-Item wflProc = this.newItem("Workflow Process","get");
+Item wflProc = wfl.createRelatedItem("Workflow Process","get");
 wflProc.setProperty("description","Action Item");
-wfl.setRelatedItem(wflProc);
 wfl = wfl.apply();
 if (wfl.getItemCount()<0) return inn.newError("Error retrieving workflow: "+wfl.getErrorDetail());
 if (wfl.getItemCount()==0) return this;
@@ -26,10 +25,9 @@ wflProc.startWorkflow();
 wflProc = this.newItem("Workflow Process","get");
 wflProc.setAttribute("select","id");
 wflProc.setID(wflProcId);
-Item actRel = this.newItem("Workflow Process Activity","get");
+Item actRel = wflProc.createRelationship("Workflow Process Activity","get");
 actRel.setAttribute("select","id,related_id(name,state,is_start)");
 actRel.setAttribute("orderBy","created_on");
-wflProc.addRelationship(actRel);
 wflProc = wflProc.apply();
 if (wflProc.getItemCount()!=1) return inn.newError("Error retrieving workflow process: "+wflProc.getErrorDetail());
 
@@ -41,7 +39,7 @@ for (int i=0; i<acts.getItemCount(); i++) {
  acts.getItemByIndex(i).setAction("edit");
  acts.getItemByIndex(i).getRelatedItem().setAction("edit");
  acts.getItemByIndex(i).getRelatedItem().setProperty("y",Convert.ToString((i+1)*50));
- acts.getItemByIndex(i).getRelatedItem().setProperty("managed_by_id",this.getProperty("owned_by_id"));
+ acts.getItemByIndex(i).getRelatedItem().setProperty("managed_by_id",this.getProperty("owned_by_id",""));
 }	
 wfl = wflProc.apply();
 if (wfl.isError()) return inn.newError("Error editing workflow process: "+wfl.getErrorDetail());
@@ -51,15 +49,14 @@ acts = wflProc.getItemsByXPath("Relationships/Item[@type='Workflow Process Activ
 for (int i=0; i<acts.getItemCount(); i++) {
  Item thisAct = this.newItem();
  thisAct.loadAML(acts.getItemByIndex(i).node.OuterXml);
- Item resItem = this.newItem();
  if (thisAct.getProperty("state")=="Pending") {
-  CCO.Workflow.ActivateActivity(ref thisAct.dom,ref resItem.dom);
-  if (resItem.isError()) return inn.newError("Error activating activity : "+resItem);
+  thisAct = thisAct.apply("ActivateActivity");
+  if (thisAct.isError()) return inn.newError("Error activating activity : "+thisAct.getErrorDetail());
  } else {
   Item tempItem = this.newItem("Action Item","get");
   tempItem.setProperty("activity",thisAct.getID());
   tempItem = tempItem.apply();
-  if(tempItem.getItemCount()==0) resItem = thisAct.promote("Cancelled","");
+  if(tempItem.getItemCount()==0) thisAct = thisAct.promote("Cancelled","");
  }
 }	
 return this;]]></method_code>

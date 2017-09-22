@@ -14,12 +14,14 @@ This project and the following release notes have been migrated from the old Ara
 
 Release | Notes
 --------|--------
+[v1.2](https://github.com/ArasLabs/meeting-manager/releases/tag/v1.2) | Updated to work with 8.2.0 and 9.0.1
 [v1](https://github.com/ArasLabs/meeting-manager/releases/tag/v1) | Initial Version
 
 #### Supported Aras Versions
 
 Project | Aras
 --------|------
+[v1.2](https://github.com/ArasLabs/meeting-manager/releases/tag/v1.2) | 8.2.0, 9.0.1
 [v1](https://github.com/ArasLabs/meeting-manager/releases/tag/v1) | 8.1.1
 
 ## Installation

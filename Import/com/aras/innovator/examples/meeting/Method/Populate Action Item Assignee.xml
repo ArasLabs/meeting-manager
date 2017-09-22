@@ -4,8 +4,10 @@
 //
 // Populates the 'assignee' federated property based on the value of 'owned_by_id'.  Called OnAfterGet on
 //  Action Item
-
-this.setProperty("assignee",this.getPropertyAttribute("owned_by_id","keyed_name",""));
+for (int i=0; i<this.getItemCount(); i++) {
+ string assignee = this.getItemByIndex(i).getPropertyAttribute("owned_by_id","keyed_name","");
+ if (assignee!="") this.getItemByIndex(i).setProperty("assignee",assignee);
+}
 return this;]]></method_code>
   <method_type>C#</method_type>
   <name>Populate Action Item Assignee</name>

@@ -10,7 +10,7 @@ string thisId = this.getID();
 Item actionItems = this.getItemsByXPath("Relationships/Item/related_id/Item[@type='Action Item']");
 
 if (actionItems.getItemCount() > 0) {
- Item itemType = inn.getItemByKeyedName("ItemType",this.GetType());
+ Item itemType = inn.getItemByKeyedName("ItemType",this.getAttribute("type"));
  // Get the Workflow Map to use as a template
  Item wfl = this.newItem("Workflow Map","get");
  wfl.setAttribute("levels","3");
@@ -24,7 +24,7 @@ if (actionItems.getItemCount() > 0) {
   Item thisWflItem = wflItems.getItemByIndex(i);
   thisWflItem.setAction("add");
   thisWflItem.setProperty("locked_by_id","");
-  thisWflItem.setType(thisWflItem.GetType().Replace("Map","Process").Replace(" Template",""));
+  thisWflItem.setType(thisWflItem.getAttribute("type").Replace("Map","Process").Replace(" Template",""));
   // Replace ids
   string oldId = thisWflItem.getID();
   string newId = inn.getNewID();
@@ -43,11 +43,9 @@ if (actionItems.getItemCount() > 0) {
  // Check if the workflow already exists
  Item wflRel = this.newItem("Workflow","get");
  wflRel.setProperty("source_id",thisId);
- Item wflProc = this.newItem("Workflow Process","get");
+ Item wflProc = wflRel.createRelatedItem("Workflow Process","get");
  wflProc.setProperty("description","Action Item");
- Item act = this.newItem("Workflow Process Activity","get");
- wflProc.addRelationship(act);
- wflRel.setRelatedItem(wflProc);
+ Item act = wflProc.createRelationship("Workflow Process Activity","get");
  string holdActId = "";
  if (this.getAction()!="add") wflRel = wflRel.apply();
  if (wflRel.getItemCount() < 0) return wflRel;
@@ -58,9 +56,8 @@ if (actionItems.getItemCount() > 0) {
   string wflProcId = wflRel.getProperty("related_id");
   wflRel = this.newItem("Workflow","edit");
   wflRel.setID(wflRelId);
-  wflProc = this.newItem("Workflow Process","edit");
+  wflProc = wflRel.createRelatedItem("Workflow Process","edit");
   wflProc.setID(wflProcId);
-  wflRel.setRelatedItem(wflProc); 	
  } else {
   // Workflow does not exist, add it
   wflRel = this.newItem("Workflow","add");
@@ -73,7 +70,7 @@ if (actionItems.getItemCount() > 0) {
  // Sync the Activities with the Action Items
  for (int i=0; i<actionItems.getItemCount(); i++) {
   Item thisActionItem = actionItems.getItemByIndex(i);
-  thisActionItem.setProperty("managed_by_id",this.getProperty("owned_by_id"));
+  thisActionItem.setProperty("managed_by_id",this.getProperty("owned_by_id",""));
   Item newActRel = this.newItem();
   switch (thisActionItem.getAction()) {
    case "add" :
@@ -87,8 +84,8 @@ if (actionItems.getItemCount() > 0) {
      XmlNodeList idNodes = newActRel.node.SelectNodes("//*[.='"+oldId+"']|//@*[.='"+oldId+"']");
      foreach (XmlNode idNode in idNodes) { idNode.InnerText = newId; }
     }
-    newActRel.getRelatedItem().setProperty("name",thisActionItem.getProperty("description"));
-    newActRel.getRelatedItem().setProperty("message",thisActionItem.getProperty("notes"));
+    newActRel.getRelatedItem().setProperty("name",thisActionItem.getProperty("description",""));
+    newActRel.getRelatedItem().setProperty("message",thisActionItem.getProperty("notes",""));
     thisActionItem.setProperty("activity",newActRel.getRelatedItem().getID());
     if (holdActId.Length == 32) newActRel.getItemsByXPath("related_id/Item/Relationships/Item[@type='Workflow Process Path']").getItemByIndex(0).setProperty("related_id",holdActId);
     Item assignItem = this.newItem("Activity Assignment","add");
@@ -98,13 +95,13 @@ if (actionItems.getItemCount() > 0) {
     break;
    case "update" :
     // Updating an existing Activity
-    string actId = thisActionItem.getProperty("activity");
+    string actId = thisActionItem.getProperty("activity","null");
     newActRel = this.newItem("Workflow Process Activity","edit");
     newActRel.setAttribute("where","[WORKFLOW_PROCESS_ACTIVITY].related_id='"+actId+"'");
     Item newAct = this.newItem("Activity","edit");
     newAct.setID(actId);
-    newAct.setProperty("name",thisActionItem.getProperty("description"));
-    newAct.setProperty("message",thisActionItem.getProperty("notes"));
+    newAct.setProperty("name",thisActionItem.getProperty("description",""));
+    newAct.setProperty("message",thisActionItem.getProperty("notes",""));
     newActRel.setRelatedItem(newAct);
     assignItem = this.newItem("Activity Assignment","edit");
     assignItem.setAttribute("where","[ACTIVITY_ASSIGNMENT].voting_weight='101'");

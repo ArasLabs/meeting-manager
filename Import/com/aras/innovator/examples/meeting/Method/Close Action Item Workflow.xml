@@ -8,10 +8,9 @@
 Innovator inn = this.newInnovator();
 Item wfl = this.newItem("Workflow","get");
 wfl.setProperty("source_id",this.getID());
-Item wflProc = this.newItem("Workflow Process","get");
+Item wflProc = wfl.createRelatedItem("Workflow Process","get");
 wflProc.setProperty("description","Action Item");
-Item wflProcAct = this.newItem("Workflow Process Activity","get");
-wfl.setRelatedItem(wflProc);
+Item wflProcAct = wflProc.createRelationship("Workflow Process Activity","get");
 wfl = wfl.apply();
 
 // Check for errors and close the workflow

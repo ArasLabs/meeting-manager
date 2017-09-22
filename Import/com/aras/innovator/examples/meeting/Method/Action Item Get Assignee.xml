@@ -1,0 +1,9 @@
+﻿<AML>
+ <Item type="Method" id="DE67CC330AAD4B47920984D8D70F8302" action="add">
+  <method_code><![CDATA[string selList = this.getAttribute("select","");
+if (selList!="") this.setAttribute("select",selList+",owned_by_id");
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Action Item Get Assignee</name>
+ </Item>
+</AML>

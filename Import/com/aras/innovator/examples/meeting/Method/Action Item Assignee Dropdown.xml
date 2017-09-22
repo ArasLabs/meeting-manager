@@ -21,10 +21,9 @@ if ((!parent.participantIds || !parent.participantNames) && thisItem.getAction()
  var meetingItem = thisItem.newItem(thisItem.getType(),"get");
  meetingItem.setID(thisItem.getID());
  meetingItem.setAttribute("select","id");
- var participantItem = thisItem.newItem("Meeting Participant","get");
+ var participantItem = meetingItem.createRelationship("Meeting Participant","get");
  participantItem.setAttribute("select","id,related_id");
  participantItem.setAttribute("related_expand","0");
- meetingItem.addRelationship(participantItem);
  meetingItem = meetingItem.apply();
  if (meetingItem.isError()) {
   top.aras.AlertError("Error retrieving participants: "+meetingItem.getErrorDetail());
@@ -33,8 +32,8 @@ if ((!parent.participantIds || !parent.participantNames) && thisItem.getAction()
  // Build arrays for the participant ids and names
  participantItem = meetingItem.getItemsByXPath("Relationships/Item[@type='Meeting Participant']");
  for (var i=0; i<participantItem.getItemCount(); i++) {
-  parent.participantIds[i] = participantItem.getItemByIndex(i).getProperty("related_id");
-  parent.participantNames[i] = participantItem.getItemByIndex(i).getPropertyAttribute("related_id","keyed_name");
+  parent.participantIds[i] = participantItem.getItemByIndex(i).getProperty("related_id","");
+  parent.participantNames[i] = participantItem.getItemByIndex(i).getPropertyAttribute("related_id","keyed_name","");
  }
 }
 

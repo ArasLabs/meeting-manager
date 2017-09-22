@@ -6,15 +6,6 @@
 //  OnBeforeAdd & OnBeforeUpdate on Action Item
 
 this.setProperty("owned_by_id",this.getProperty("assignee",""));
-//string assigneeName = this.getProperty("assignee","");
-//if (assigneeName!="") {
-// Item assigneeItem = this.newItem("Identity","get");
-// assigneeItem.setAttribute("page","1");
-// assigneeItem.setAttribute("pagesize","1");
-// assigneeItem.setAttribute("select","id");
-// assigneeItem.setProperty("name",assigneeName);
-// this.setPropertyItem("owned_by_id",assigneeItem);
-//}
 return this;]]></method_code>
   <method_type>C#</method_type>
   <name>Set Action Item Assignee</name>

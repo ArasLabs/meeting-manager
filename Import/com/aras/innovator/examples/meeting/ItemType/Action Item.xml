@@ -173,6 +173,16 @@
     <sort_order>128</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
    </Item>
+   <Item type="Server Event" id="EA99BB14FE184D499CB4E2820CB64691" action="add">
+    <related_id keyed_name="Action Item Get Assignee" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Action Item Get Assignee</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeGet</server_event>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
    <Item type="Server Event" id="AD710D6D20264C7BA11F38139CD82601" action="add">
     <related_id keyed_name="Set Action Item Assignee" type="Method">
      <Item type="Method" action="get" select="id">
