@@ -1,0 +1,12 @@
+<AML>
+ <Item type="EMail Message" id="ED2E46154E5C4E19887005DF42DEEF0D" action="add">
+  <body_html>&lt;BODY&gt;&lt;font size="+1"&gt;
+&lt;p&gt;You have been assigned a new Action Item in Aras Innovator (details below).  Please log in to Innovator to complete the work.&lt;/p&gt;
+&lt;p&gt;&lt;font size="+0" style="font-variant: small-caps"&gt;Description:&lt;/font&gt; ${Item[@type="Activity"]/name}&lt;/p&gt;
+&lt;/font&gt;&lt;/BODY&gt;</body_html>
+  <from_user keyed_name="Innovator Admin" type="User">30B991F927274FA3829655F50C99472E</from_user>
+  <name>Action Item</name>
+  <query_string>&lt;Item type="Activity" id="${Item/ActivityId}" action="get" /&gt;</query_string>
+  <subject>Action Item Assignment</subject>
+ </Item>
+</AML>

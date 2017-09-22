@@ -1,0 +1,69 @@
+<AML>
+ <Item type="Life Cycle Map" id="B0A72D9201A9438CB241EE7073B38F2E" action="add">
+  <description>Meeting Lifecycle</description>
+  <name>Meeting</name>
+  <start_state keyed_name="Planned" type="Life Cycle State">2AE1E23412AA40D2B83BF28131B5989A</start_state>
+  <Relationships>
+   <Item type="Life Cycle State" id="D47C1727076446FFB507ABDB43AC0DF9" action="add">
+    <image>../images/icons/20x20/20x15_lifecycle.gif</image>
+    <name>Closed</name>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Meeting" type="Life Cycle Map">B0A72D9201A9438CB241EE7073B38F2E</source_id>
+    <state_permission_id keyed_name="Closed Meeting" type="Permission">AE493F755F114BDB8930FF53BFB7F1AB</state_permission_id>
+    <x>327</x>
+    <y>89</y>
+   </Item>
+   <Item type="Life Cycle State" id="BFFF80E808534023BF8AB9A1E4D445B6" action="add">
+    <image>../images/icons/20x20/20x15_lifecycle.gif</image>
+    <name>Open</name>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Meeting" type="Life Cycle Map">B0A72D9201A9438CB241EE7073B38F2E</source_id>
+    <x>205</x>
+    <y>89</y>
+   </Item>
+   <Item type="Life Cycle State" id="2AE1E23412AA40D2B83BF28131B5989A" action="add">
+    <image>../images/icons/20x20/20x15_lifecycle.gif</image>
+    <name>Planned</name>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Meeting" type="Life Cycle Map">B0A72D9201A9438CB241EE7073B38F2E</source_id>
+    <x>77</x>
+    <y>89</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="7BEE791C100C4D91B664A27F05B60DC2" action="add">
+    <from_state keyed_name="Open" type="Life Cycle State">BFFF80E808534023BF8AB9A1E4D445B6</from_state>
+    <get_comment>0</get_comment>
+    <post_action keyed_name="Close Action Item Workflow" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Close Action Item Workflow</name>
+     </Item>
+    </post_action>
+    <role keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </role>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Meeting" type="Life Cycle Map">B0A72D9201A9438CB241EE7073B38F2E</source_id>
+    <to_state keyed_name="Closed" type="Life Cycle State">D47C1727076446FFB507ABDB43AC0DF9</to_state>
+   </Item>
+  
+   <Item type="Life Cycle Transition" id="8EF9AFF80FD04144B46B4D2DF756E577" action="add">
+    <from_state keyed_name="Planned" type="Life Cycle State">2AE1E23412AA40D2B83BF28131B5989A</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </role>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Meeting" type="Life Cycle Map">B0A72D9201A9438CB241EE7073B38F2E</source_id>
+    <to_state keyed_name="Open" type="Life Cycle State">BFFF80E808534023BF8AB9A1E4D445B6</to_state>
+   </Item></Relationships>
+ </Item>
+</AML>

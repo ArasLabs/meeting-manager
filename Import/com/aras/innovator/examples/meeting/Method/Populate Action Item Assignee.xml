@@ -1,0 +1,13 @@
+<AML>
+ <Item type="Method" id="585B3255E4144AEC9C34F5004BDAD92B" action="add">
+  <method_code><![CDATA[// Populate Action Item Assignee
+//
+// Populates the 'assignee' federated property based on the value of 'owned_by_id'.  Called OnAfterGet on
+//  Action Item
+
+this.setProperty("assignee",this.getPropertyAttribute("owned_by_id","keyed_name",""));
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Populate Action Item Assignee</name>
+ </Item>
+</AML>

@@ -1,0 +1,7 @@
+<AML>
+ <Item type="Sequence" id="1AA4DD03E48F4653B0CCF589C0A7022D" action="add">
+  <current_value>100</current_value>
+  <name>Meeting</name>
+  <prefix>MTG-</prefix>
+ </Item>
+</AML>

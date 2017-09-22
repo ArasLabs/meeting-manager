@@ -1,0 +1,22 @@
+<AML>
+ <Item type="Method" id="F08D1B63A42C45729A102AECCDE763E2" action="add">
+  <method_code><![CDATA[// Set Action Item Assignee
+//
+// Sets the 'owned_by_id' property of the Action Item, based on the value of the 'assignee' property.  Called
+//  OnBeforeAdd & OnBeforeUpdate on Action Item
+
+this.setProperty("owned_by_id",this.getProperty("assignee",""));
+//string assigneeName = this.getProperty("assignee","");
+//if (assigneeName!="") {
+// Item assigneeItem = this.newItem("Identity","get");
+// assigneeItem.setAttribute("page","1");
+// assigneeItem.setAttribute("pagesize","1");
+// assigneeItem.setAttribute("select","id");
+// assigneeItem.setProperty("name",assigneeName);
+// this.setPropertyItem("owned_by_id",assigneeItem);
+//}
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Set Action Item Assignee</name>
+ </Item>
+</AML>

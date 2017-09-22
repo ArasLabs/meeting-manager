@@ -1,0 +1,14 @@
+<AML>
+ <Item type="Method" id="0A3A03A6AF184B81A55066DD2488DE6F" action="add">
+  <method_code><![CDATA[// Meeting Participant Alias Filter
+//
+// Sets a filter so that only Alias identities may be chosen.  Called 
+//  OnSearchDialog on the related_id property of Meeting Participant
+
+var retObj = new Object();
+retObj["is_alias"] = { filterValue:"1", isFilterFixed:true };
+return retObj;]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>Meeting Participant Alias Filter</name>
+ </Item>
+</AML>

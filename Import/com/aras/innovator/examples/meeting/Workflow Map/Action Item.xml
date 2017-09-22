@@ -1,0 +1,140 @@
+<AML>
+ <Item type="Workflow Map" id="8FC8AEF8F26647008964050B4A6AC58A" action="add">
+  <description>Template for Action Item workflows</description>
+  <name>Action Item</name>
+  <node_bg_color></node_bg_color>
+  <node_label1_color></node_label1_color>
+  <node_label1_font></node_label1_font>
+  <node_label2_color></node_label2_color>
+  <node_label2_font></node_label2_font>
+  <node_name_color></node_name_color>
+  <node_name_font></node_name_font>
+  <node_size></node_size>
+  <transition_line_color></transition_line_color>
+  <transition_name_color></transition_name_color>
+  <transition_name_font></transition_name_font>
+  <Relationships>
+   <Item type="Workflow Map Activity" id="BC55C2AEDFC149989C568601B73F934F" action="add">
+    <related_id keyed_name="Action Item" type="Activity Template">
+     <Item type="Activity Template" id="E9C91BE0EF3641ADBE0044504F7D0ACC" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/Icons/20x20/20x22_gray_ball.gif</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>1</is_start>
+      <message></message>
+      <name>Action Item</name>
+      <priority>2</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>177</x>
+      <y>52</y>
+      <Relationships>
+       <Item type="Activity Template EMail" id="E51841A319CB48EEBA6B73926C901BA8" action="add">
+        <event>on_activate</event>
+        <related_id keyed_name="Action Item" type="EMail Message">ED2E46154E5C4E19887005DF42DEEF0D</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Action Item" type="Activity Template">E9C91BE0EF3641ADBE0044504F7D0ACC</source_id>
+        <target>all_assignments</target>
+       </Item>
+       <Item type="Activity Template Method" id="E8242E18E2FC42F2961519746EE3FDDF" action="add">
+        <event>on_close</event>
+        <related_id keyed_name="Promote Action Item" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>Promote Action Item</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Action Item" type="Activity Template">E9C91BE0EF3641ADBE0044504F7D0ACC</source_id>
+       </Item>
+       <Item type="Workflow Map Path" id="45011860BCE94137A1DF66328224FBA8" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Complete</name>
+        <related_id>BB18BBD639B244D1AAF3A36F363CD3C0</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Action Item" type="Activity Template">E9C91BE0EF3641ADBE0044504F7D0ACC</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item" type="Workflow Map">8FC8AEF8F26647008964050B4A6AC58A</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" id="826A9AFE90F34E738BB136A6147E93CA" action="add">
+    <related_id keyed_name="End" type="Activity Template">
+     <Item type="Activity Template" id="FCF7D3EA86654F1CA32070ECD90A8763" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>0</expected_duration>
+      <icon>../images/Icons/16x16/16x16_redx.gif</icon>
+      <is_auto>1</is_auto>
+      <is_end>1</is_end>
+      <is_start>0</is_start>
+      <message>Workflow End</message>
+      <name>End</name>
+      <priority>1</priority>
+      <reminder_count>0</reminder_count>
+      <reminder_interval>0</reminder_interval>
+      <timeout_duration>0</timeout_duration>
+      <wait_for_all_inputs>1</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>541</x>
+      <y>52</y>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item" type="Workflow Map">8FC8AEF8F26647008964050B4A6AC58A</source_id>
+   </Item>
+   <Item type="Workflow Map Activity" id="4F232C9A51B745C087BFADE21F93603B" action="add">
+    <related_id keyed_name="Hold" type="Activity Template">
+     <Item type="Activity Template" id="BB18BBD639B244D1AAF3A36F363CD3C0" action="add">
+      <can_delegate>0</can_delegate>
+      <can_refuse>0</can_refuse>
+      <consolidate_ondelegate>0</consolidate_ondelegate>
+      <expected_duration>1000</expected_duration>
+      <icon>../images/Icons/20x20/20x22_gray_ball.gif</icon>
+      <is_auto>0</is_auto>
+      <is_end>0</is_end>
+      <is_start>0</is_start>
+      <message>Action Item Workflow Hold</message>
+      <name>Hold</name>
+      <wait_for_all_inputs>0</wait_for_all_inputs>
+      <wait_for_all_votes>0</wait_for_all_votes>
+      <x>380</x>
+      <y>52</y>
+      <Relationships>
+       <Item type="Activity Template Assignment" id="2016E4C60BF546A6A01ADDC6A452A0B0" action="add">
+        <for_all_members>0</for_all_members>
+        <is_required>0</is_required>
+        <related_id keyed_name="Action Item Daemon" type="Identity">9DDCA195B7C54D53BC648210C0E3C9F0</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Hold" type="Activity Template">BB18BBD639B244D1AAF3A36F363CD3C0</source_id>
+        <voting_weight>100</voting_weight>
+       </Item>
+       <Item type="Workflow Map Path" id="5CCC57FBA543478BBAAF0C610D937CDE" action="add">
+        <authentication>none</authentication>
+        <is_default>0</is_default>
+        <is_override>0</is_override>
+        <name>Close</name>
+        <related_id>FCF7D3EA86654F1CA32070ECD90A8763</related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Hold" type="Activity Template">BB18BBD639B244D1AAF3A36F363CD3C0</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+    </related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Action Item" type="Workflow Map">8FC8AEF8F26647008964050B4A6AC58A</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

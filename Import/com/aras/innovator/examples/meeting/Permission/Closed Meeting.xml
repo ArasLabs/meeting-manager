@@ -1,0 +1,21 @@
+<AML>
+ <Item type="Permission" id="AE493F755F114BDB8930FF53BFB7F1AB" action="add">
+  <is_private>0</is_private>
+  <name>Closed Meeting</name>
+  <Relationships>
+   <Item type="Access" id="1887EC832C994DFFB0C5C5C87D3DEDAC" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Closed Meeting" type="Permission">AE493F755F114BDB8930FF53BFB7F1AB</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,212 @@
+<AML>
+ <Item type="Form" id="3FED8A9193984F6C89A0866D82B7FFB7" action="add">
+  <name>Meeting</name>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <Relationships>
+   <Item type="Body" id="470A3F9A31C54C77B1131023F1B180E4" action="add">
+    <bg_attach>scroll</bg_attach>
+    <bg_color>#FFFFFF</bg_color>
+    <bg_image>../images/Backgrounds/wvleft.gif</bg_image>
+    <bg_repeat>no-repeat</bg_repeat>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Meeting" type="Form">3FED8A9193984F6C89A0866D82B7FFB7</source_id>
+    <Relationships>
+     <Item type="Field" id="0E835408E8BC4F7CAB032D37A53234CD" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <display_length>100</display_length>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label>Description</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>description</name>
+      <positioning>absolute</positioning>
+      <propertytype_id keyed_name="description" type="Property">69C56C976DBF45ED915F313D6A0AFB26</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="470A3F9A31C54C77B1131023F1B180E4" type="Body">470A3F9A31C54C77B1131023F1B180E4</source_id>
+      <tab_index>512</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>80</textarea_cols>
+      <textarea_rows>1</textarea_rows>
+      <x>190</x>
+      <y>50</y>
+     </Item>
+     <Item type="Field" id="E5E4A6F4B75E435D99FC0D7D258BF138" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>html</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <html_code><![CDATA[<table border='0' cellspacing='0' cellpadding='0'>
+<tr><td colspan='2'>
+<script>
+  document.write('<img hspace="20" vspace="20" src="' + top.aras.getItemProperty(document.itemType,'large_icon') + '">');
+</Script>
+</td></tr>
+<tr><td colspan='2'><img src='../images/lines/wvline.gif'></td></tr>
+<tr><td colspan='2'><img src='../images/icons/other/1x1.gif' width='1' height='10'></td></tr>
+<tr><td><img src='../images/icons/other/1x1.gif' width='20' height='1'>
+<td width='150'><p class='vbig'><b>
+<script>
+  var labelIT = top.aras.getItemProperty(document.itemType, 'label'); 
+  if (labelIT == '') labelIT = document.itemTypeName; 
+  document.write(labelIT);
+</Script>
+</b></p>
+</td></tr></table>
+]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <name>item_info</name>
+      <positioning>absolute</positioning>
+      <sort_order>896</sort_order>
+      <source_id keyed_name="470A3F9A31C54C77B1131023F1B180E4" type="Body">470A3F9A31C54C77B1131023F1B180E4</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+     </Item>
+     <Item type="Field" id="1CE4BE82C913457E8E1B86E18C99E836" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label>Meeting Number</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>item_number</name>
+      <positioning>absolute</positioning>
+      <propertytype_id keyed_name="item_number" type="Property">A3B8B86443154873B4FC79278513424F</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="470A3F9A31C54C77B1131023F1B180E4" type="Body">470A3F9A31C54C77B1131023F1B180E4</source_id>
+      <tab_index>128</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>10</y>
+     </Item>
+     <Item type="Field" id="29AA225867A44BD1B925B8DCA9B50A07" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>date</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label>Meeting Date</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>meeting_date</name>
+      <positioning>absolute</positioning>
+      <propertytype_id keyed_name="meeting_date" type="Property">18C55E63A32648BB82B89490640DCA1C</propertytype_id>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="470A3F9A31C54C77B1131023F1B180E4" type="Body">470A3F9A31C54C77B1131023F1B180E4</source_id>
+      <tab_index>256</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>320</x>
+      <y>10</y>
+     </Item>
+     <Item type="Field" id="55861DBA566C431E9C093F041073A78F" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>textarea</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label>Meeting Notes</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>meeting_notes</name>
+      <positioning>absolute</positioning>
+      <propertytype_id keyed_name="meeting_notes" type="Property">E17715A8CC0940C49CDFC44522EC6F6C</propertytype_id>
+      <sort_order>640</sort_order>
+      <source_id keyed_name="470A3F9A31C54C77B1131023F1B180E4" type="Body">470A3F9A31C54C77B1131023F1B180E4</source_id>
+      <tab_index>640</tab_index>
+      <tab_stop>1</tab_stop>
+      <textarea_cols>100</textarea_cols>
+      <textarea_rows>10</textarea_rows>
+      <x>190</x>
+      <y>90</y>
+     </Item>
+     <Item type="Field" id="A14FF14A91EC4C70A09A630B9CF9C6AA" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label>Meeting Leader</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>owned_by_id</name>
+      <positioning>absolute</positioning>
+      <sort_order>768</sort_order>
+      <source_id keyed_name="470A3F9A31C54C77B1131023F1B180E4" type="Body">470A3F9A31C54C77B1131023F1B180E4</source_id>
+      <tab_index>384</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>580</x>
+      <y>10</y>
+     </Item>
+     <Item type="Field" id="63789E99CCC842059E925D4EC455D1FB" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label>State</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>state</name>
+      <positioning>absolute</positioning>
+      <sort_order>1024</sort_order>
+      <source_id keyed_name="470A3F9A31C54C77B1131023F1B180E4" type="Body">470A3F9A31C54C77B1131023F1B180E4</source_id>
+      <tab_index>1792</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>450</x>
+      <y>10</y>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="Field" id="A14FF14A91EC4C70A09A630B9CF9C6AA" action="edit">
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>owned_by_id</name>
+    <source_id type="ItemType" keyed_name="Meeting">00CA89BEEE0A4869A5812E549830A87A</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+ <Item type="Field" id="63789E99CCC842059E925D4EC455D1FB" action="edit">
+  <propertytype_id>
+   <Item type="Property" action="get" select="id">
+    <name>state</name>
+    <source_id type="ItemType" keyed_name="Meeting">00CA89BEEE0A4869A5812E549830A87A</source_id>
+   </Item>
+  </propertytype_id>
+ </Item>
+</AML>

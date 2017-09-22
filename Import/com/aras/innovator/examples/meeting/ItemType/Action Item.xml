@@ -1,0 +1,240 @@
+<AML>
+ <Item type="ItemType" id="2910B58AA3C74319AFE93175F44AAF34" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <default_lifecycle keyed_name="Action Item" type="Life Cycle Map">2DA3DDD1BD144B6B9D9B2EC245A8A88E</default_lifecycle>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>ACTION_ITEM</instance_data>
+  <is_dependent>1</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label>Action Item</label>
+  <label_plural>Action Items</label_plural>
+  <manual_versioning>0</manual_versioning>
+  <name>Action Item</name>
+  <save_history>0</save_history>
+  <show_parameters_tab>1</show_parameters_tab>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <Relationships>
+   <Item type="Allowed Permission" id="5887CF46395B434185BD65924DCC8C54" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Action Item" type="Permission">4A616CE6BC634D86AA59746C7112C3FF</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="Can Add" id="901B0AF476804F02AEDDEA68514700F5" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="Property" id="EC3009D5C0664C788FF0276F3E659FD5" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label>Activity</label>
+    <name>activity</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <stored_length>32</stored_length>
+   </Item>
+   <Item type="Property" id="88C7C9F6E1734FF0B9CC281AC1705C21" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_type>federated</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label>Assignee</label>
+    <name>assignee</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <Relationships>
+     <Item type="Grid Event" id="D5B9B86929714DF197C14729A6BDF130" action="add">
+      <grid_event>oneditstart</grid_event>
+      <related_id keyed_name="Action Item Assignee Dropdown" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>Action Item Assignee Dropdown</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="assignee" type="Property">88C7C9F6E1734FF0B9CC281AC1705C21</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Property" id="653407A52313459C823FC62DDB97A07F" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_source keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label>Deliverable</label>
+    <name>deliverable</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="Property" id="3FFADDA1AB3F45E38B973B4F54B693B6" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>300</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>0</keyed_name_order>
+    <label>Description</label>
+    <name>description</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <stored_length>256</stored_length>
+   </Item>
+   <Item type="Property" id="5178620F096947148C2AF14EC5CF8CAF" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>date</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label>Due Date</label>
+    <name>due_date</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="Property" id="831930F3155143CFB7B495D3FFCE1812" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>250</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label>Notes</label>
+    <name>notes</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <stored_length>512</stored_length>
+   </Item>
+   <Item type="Server Event" id="1C6383CA073E4169A8133AED7E9EFBFD" action="add">
+    <related_id keyed_name="Populate Action Item Assignee" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Populate Action Item Assignee</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterGet</server_event>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="Server Event" id="C27EAA569EAC45ADB1D4391FC40B37F4" action="add">
+    <related_id keyed_name="Set Action Item Assignee" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Set Action Item Assignee</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="Server Event" id="AD710D6D20264C7BA11F38139CD82601" action="add">
+    <related_id keyed_name="Set Action Item Assignee" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>Set Action Item Assignee</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="View" id="1D8603447B7D404785C0BE069EF16C61" action="add">
+    <client>js</client>
+    <related_id keyed_name="Action Item" type="Form">39BD6A97091D49B2AF35A44AF96D3954</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <type>default</type>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="2910B58AA3C74319AFE93175F44AAF34" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='2910B58AA3C74319AFE93175F44AAF34' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label>Assignee</label>
+    <name>owned_by_id</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='2910B58AA3C74319AFE93175F44AAF34' and name='state'">
+    <column_alignment>left</column_alignment>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label>Status</label>
+    <name>state</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <stored_length>32</stored_length>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

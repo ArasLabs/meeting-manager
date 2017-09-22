@@ -1,0 +1,20 @@
+<AML>
+ <Item type="Method" id="CA8F1F0CCC8243C1A93AEB19E9C4742D" action="add">
+  <method_code><![CDATA[// Promote Action Item
+//
+// Promotes the Action Item to the 'Closed' state.  Called 'On Close' of the Activity.
+
+Item actionItem = this.newItem("Action Item","get");
+actionItem.setAttribute("select","id");
+actionItem.setProperty("activity",this.getID());
+actionItem = actionItem.apply();
+if (actionItem.getItemCount()!=1) return this.newInnovator().newError("Error retrieving Action Item");
+actionItem.unlockItem();
+if (actionItem.isError()) return actionItem;
+actionItem.promote("Closed","Closed by the Action Item workflow");
+if (actionItem.isError()) return actionItem;
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Promote Action Item</name>
+ </Item>
+</AML>

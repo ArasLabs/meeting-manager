@@ -1,0 +1,3 @@
+This package adds a "Meeting" ItemType under Portfolio in the TOC.  This ItemType is intended to track the results, participants and action items from a meeting.  This will enable companies to keep a record of information that is often either undocumented or loosely controlled by meeting minutes.  Action items notifications are sent via email, and an activity appears in the user's InBasket until the work is marked as complete.
+
+The package should be installed using the SolutionsUpgrade Import tool.

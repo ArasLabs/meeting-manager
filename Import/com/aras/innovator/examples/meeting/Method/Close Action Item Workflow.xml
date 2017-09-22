@@ -1,0 +1,28 @@
+<AML>
+ <Item type="Method" id="DE0240FA42384AF39F1AF9F5D4A119A1" action="add">
+  <method_code><![CDATA[// Close Action Item Workflow
+//
+// Closes the action item workflow.  Called from the controlled item's lifecycle
+
+// Get the workflow
+Innovator inn = this.newInnovator();
+Item wfl = this.newItem("Workflow","get");
+wfl.setProperty("source_id",this.getID());
+Item wflProc = this.newItem("Workflow Process","get");
+wflProc.setProperty("description","Action Item");
+Item wflProcAct = this.newItem("Workflow Process Activity","get");
+wfl.setRelatedItem(wflProc);
+wfl = wfl.apply();
+
+// Check for errors and close the workflow
+if (wfl.getItemCount() < 0) { 
+ return inn.newError("Error retrieving action item workflow: "+wfl.getErrorDetail());
+} else if (wfl.getItemCount()==1) {
+ wflProc = wfl.getRelatedItem();
+ wflProc.closeWorkflow();
+}
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Close Action Item Workflow</name>
+ </Item>
+</AML>
