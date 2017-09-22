@@ -1,25 +1,36 @@
-<AML>
+﻿<AML>
  <Item type="Method" id="DE0240FA42384AF39F1AF9F5D4A119A1" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
   <method_code><![CDATA[// Close Action Item Workflow
 //
 // Closes the action item workflow.  Called from the controlled item's lifecycle
 
 // Get the workflow
-Innovator inn = this.newInnovator();
-Item wfl = this.newItem("Workflow","get");
-wfl.setProperty("source_id",this.getID());
-Item wflProc = wfl.createRelatedItem("Workflow Process","get");
-wflProc.setProperty("description","Action Item");
-Item wflProcAct = wflProc.createRelationship("Workflow Process Activity","get");
+Innovator inn = this.getInnovator();
+Item wfl = this.newItem("Workflow", "get");
+wfl.setProperty("source_id", this.getID());
+Item wflProc = wfl.createRelatedItem("Workflow Process", "get");
+wflProc.setProperty("description", "Action Item");
+Item wflProcAct = wflProc.createRelationship("Workflow Process Activity", "get");
 wfl = wfl.apply();
-
-// Check for errors and close the workflow
-if (wfl.getItemCount() < 0) { 
- return inn.newError("Error retrieving action item workflow: "+wfl.getErrorDetail());
-} else if (wfl.getItemCount()==1) {
- wflProc = wfl.getRelatedItem();
- wflProc.closeWorkflow();
+try
+{
+    // Check for errors and close the workflow
+    if (wfl.getItemCount() < 0)
+    {
+        return inn.newError("Error retrieving action item workflow: " + wfl.getErrorDetail());
+    }
+    else if (wfl.getItemCount() == 1)
+    {
+        wflProc = wfl.getRelatedItem();
+        wflProc.apply("closeWorkflow");
+    }
 }
+catch
+{
+    return this;
+}
+
 return this;]]></method_code>
   <method_type>C#</method_type>
   <name>Close Action Item Workflow</name>

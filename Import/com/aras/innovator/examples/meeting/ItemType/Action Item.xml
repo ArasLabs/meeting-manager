@@ -1,19 +1,19 @@
-<AML>
+﻿<AML>
  <Item type="ItemType" id="2910B58AA3C74319AFE93175F44AAF34" action="add">
   <allow_private_permission>1</allow_private_permission>
   <auto_search>0</auto_search>
-  <default_lifecycle keyed_name="Action Item" type="Life Cycle Map">2DA3DDD1BD144B6B9D9B2EC245A8A88E</default_lifecycle>
+  <enforce_discovery>1</enforce_discovery>
   <hide_where_used>0</hide_where_used>
   <implementation_type>table</implementation_type>
   <instance_data>ACTION_ITEM</instance_data>
   <is_dependent>1</is_dependent>
   <is_relationship>0</is_relationship>
   <is_versionable>0</is_versionable>
-  <label>Action Item</label>
-  <label_plural>Action Items</label_plural>
+  <label xml:lang="en">Action Item</label>
+  <label_plural xml:lang="en">Action Items</label_plural>
   <manual_versioning>0</manual_versioning>
   <name>Action Item</name>
-  <save_history>0</save_history>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
   <show_parameters_tab>1</show_parameters_tab>
   <unlock_on_logout>0</unlock_on_logout>
   <use_src_access>0</use_src_access>
@@ -24,6 +24,7 @@
     <sort_order>128</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
    </Item>
+  
    <Item type="Can Add" id="901B0AF476804F02AEDDEA68514700F5" action="add">
     <can_add>1</can_add>
     <related_id keyed_name="World" type="Identity">
@@ -31,6 +32,11 @@
       <name>World</name>
      </Item>
     </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="ItemType Life Cycle" id="1D004B10936D4997B2B153FC1BC84999" action="add">
+    <related_id keyed_name="Action Item" type="Life Cycle Map">2DA3DDD1BD144B6B9D9B2EC245A8A88E</related_id>
     <sort_order>128</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
    </Item>
@@ -43,13 +49,14 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>Activity</label>
+    <label xml:lang="en">Activity</label>
     <name>activity</name>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>1024</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
     <stored_length>32</stored_length>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" id="88C7C9F6E1734FF0B9CC281AC1705C21" action="add">
     <column_alignment>left</column_alignment>
@@ -60,13 +67,14 @@
     <is_indexed>0</is_indexed>
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
-    <is_required>0</is_required>
-    <label>Assignee</label>
+    <is_required>1</is_required>
+    <label xml:lang="en">Assignee</label>
     <name>assignee</name>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>256</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <track_history>0</track_history>
     <Relationships>
      <Item type="Grid Event" id="D5B9B86929714DF197C14729A6BDF130" action="add">
       <grid_event>oneditstart</grid_event>
@@ -92,12 +100,13 @@
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
     <item_behavior>float</item_behavior>
-    <label>Deliverable</label>
+    <label xml:lang="en">Deliverable</label>
     <name>deliverable</name>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>640</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" id="3FFADDA1AB3F45E38B973B4F54B693B6" action="add">
     <column_alignment>left</column_alignment>
@@ -108,15 +117,16 @@
     <is_indexed>0</is_indexed>
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
-    <is_required>0</is_required>
+    <is_required>1</is_required>
     <keyed_name_order>0</keyed_name_order>
-    <label>Description</label>
+    <label xml:lang="en">Description</label>
     <name>description</name>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>128</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
     <stored_length>256</stored_length>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" id="5178620F096947148C2AF14EC5CF8CAF" action="add">
     <column_alignment>left</column_alignment>
@@ -128,12 +138,14 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>Due Date</label>
+    <label xml:lang="en">Due Date</label>
     <name>due_date</name>
+    <order_by>1</order_by>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>512</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" id="831930F3155143CFB7B495D3FFCE1812" action="add">
     <column_alignment>left</column_alignment>
@@ -145,13 +157,14 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>Notes</label>
+    <label xml:lang="en">Notes</label>
     <name>notes</name>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>896</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
     <stored_length>512</stored_length>
+    <track_history>0</track_history>
    </Item>
    <Item type="Server Event" id="1C6383CA073E4169A8133AED7E9EFBFD" action="add">
     <related_id keyed_name="Populate Action Item Assignee" type="Method">
@@ -163,14 +176,14 @@
     <sort_order>384</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
    </Item>
-   <Item type="Server Event" id="C27EAA569EAC45ADB1D4391FC40B37F4" action="add">
+   <Item type="Server Event" id="AD710D6D20264C7BA11F38139CD82601" action="add">
     <related_id keyed_name="Set Action Item Assignee" type="Method">
      <Item type="Method" action="get" select="id">
       <name>Set Action Item Assignee</name>
      </Item>
     </related_id>
     <server_event>onBeforeAdd</server_event>
-    <sort_order>128</sort_order>
+    <sort_order>256</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
    </Item>
    <Item type="Server Event" id="EA99BB14FE184D499CB4E2820CB64691" action="add">
@@ -183,14 +196,24 @@
     <sort_order>512</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
    </Item>
-   <Item type="Server Event" id="AD710D6D20264C7BA11F38139CD82601" action="add">
+   <Item type="Server Event" id="C27EAA569EAC45ADB1D4391FC40B37F4" action="add">
     <related_id keyed_name="Set Action Item Assignee" type="Method">
      <Item type="Method" action="get" select="id">
       <name>Set Action Item Assignee</name>
      </Item>
     </related_id>
     <server_event>onBeforeUpdate</server_event>
-    <sort_order>256</sort_order>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+   </Item>
+   <Item type="TOC Access" id="D7E859E5C35B430894490757DF8278AB" action="add">
+    <category>Administration</category>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
    </Item>
    <Item type="View" id="1D8603447B7D404785C0BE069EF16C61" action="add">
@@ -204,29 +227,46 @@
     <sort_order>128</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
     <type>default</type>
-   </Item>
-  </Relationships>
+   </Item></Relationships>
  </Item>
  <Item type="ItemType" id="2910B58AA3C74319AFE93175F44AAF34" action="edit">
   <Relationships>
-   <Item type="Property" action="edit" where="source_id='2910B58AA3C74319AFE93175F44AAF34' and name='owned_by_id'">
+   <Item type="Property" action="edit" where="source_id='2910B58AA3C74319AFE93175F44AAF34' and name='generation'">
     <column_alignment>left</column_alignment>
-    <column_width>150</column_width>
-    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
-    <data_type>item</data_type>
+    <data_type>integer</data_type>
     <is_hidden>1</is_hidden>
     <is_hidden2>1</is_hidden2>
     <is_indexed>0</is_indexed>
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
+    <name>generation</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>3456</sort_order>
+    <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <track_history>0</track_history>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='2910B58AA3C74319AFE93175F44AAF34' and name='owned_by_id'">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
     <item_behavior>float</item_behavior>
-    <label>Assignee</label>
+    <label xml:lang="en">Assignee</label>
     <name>owned_by_id</name>
+    <order_by>2</order_by>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>384</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" action="edit" where="source_id='2910B58AA3C74319AFE93175F44AAF34' and name='state'">
     <column_alignment>left</column_alignment>
@@ -237,13 +277,14 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>Status</label>
+    <label xml:lang="en">Status</label>
     <name>state</name>
     <range_inclusive>0</range_inclusive>
     <readonly>1</readonly>
     <sort_order>768</sort_order>
     <source_id keyed_name="Action Item" type="ItemType" name="Action Item">2910B58AA3C74319AFE93175F44AAF34</source_id>
     <stored_length>32</stored_length>
+    <track_history>0</track_history>
    </Item>
   </Relationships>
  </Item>

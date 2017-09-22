@@ -1,0 +1,70 @@
+<AML>
+  <Item action="add" dependencyLevel="0" id="F0116C308BAF44FAA2EA6946C66B24DD" type="RelationshipType">
+    <auto_search>1</auto_search>
+    <behavior>float</behavior>
+    <copy_permissions>0</copy_permissions>
+    <create_related>0</create_related>
+    <hide_in_all>0</hide_in_all>
+    <inc_rel_key_name>1</inc_rel_key_name>
+    <inc_related_key_name>1</inc_related_key_name>
+    <is_list_type>0</is_list_type>
+    <label xml:lang="en">SignOffs</label>
+    <name>Meeting SignOffs</name>
+    <new_show_related>0</new_show_related>
+    <related_notnull>0</related_notnull>
+    <related_option>2</related_option>
+    <relationship_id keyed_name="Meeting SignOffs" name="Meeting SignOffs" type="ItemType">
+      <Item action="add" id="D56B60885F1A4587A61D553944D86BD5" type="ItemType">
+        <allow_private_permission>1</allow_private_permission>
+        <auto_search>0</auto_search>
+        <enforce_discovery>0</enforce_discovery>
+        <hide_where_used>0</hide_where_used>
+        <implementation_type>table</implementation_type>
+        <instance_data>MEETING_SIGNOFFS</instance_data>
+        <is_dependent>0</is_dependent>
+        <is_relationship>1</is_relationship>
+        <is_versionable>0</is_versionable>
+        <manual_versioning>0</manual_versioning>
+        <name>Meeting SignOffs</name>
+        <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+        <show_parameters_tab>1</show_parameters_tab>
+        <unlock_on_logout>0</unlock_on_logout>
+        <use_src_access>1</use_src_access>
+      </Item>
+    </relationship_id>
+    <Relationships>
+      <Item action="add" id="4AB7F1A990C441BCB2B23B1F27289EB8" type="Relationship View">
+        <form keyed_name="Workflow Signoffs" type="Form">41449A928F3341149788B4A17F164845</form>
+        <related_id keyed_name="World" type="Identity">
+          <Item action="get" select="id" type="Identity">
+            <name>World</name>
+          </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="Meeting SignOffs" type="RelationshipType">F0116C308BAF44FAA2EA6946C66B24DD</source_id>
+      </Item>
+    </Relationships>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Meeting" name="Meeting" type="ItemType">00CA89BEEE0A4869A5812E549830A87A</source_id>
+  </Item>
+  <Item action="edit" id="D56B60885F1A4587A61D553944D86BD5" type="ItemType">
+    <Relationships>
+      <Item action="edit" type="Property" where="source_id=&#39;D56B60885F1A4587A61D553944D86BD5&#39; and name=&#39;generation&#39;">
+        <column_alignment>left</column_alignment>
+        <data_type>integer</data_type>
+        <is_hidden>1</is_hidden>
+        <is_hidden2>1</is_hidden2>
+        <is_indexed>0</is_indexed>
+        <is_keyed>0</is_keyed>
+        <is_multi_valued>0</is_multi_valued>
+        <is_required>0</is_required>
+        <name>generation</name>
+        <range_inclusive>0</range_inclusive>
+        <readonly>1</readonly>
+        <sort_order>2432</sort_order>
+        <source_id keyed_name="Meeting SignOffs" name="Meeting SignOffs" type="ItemType">D56B60885F1A4587A61D553944D86BD5</source_id>
+        <track_history>0</track_history>
+      </Item>
+    </Relationships>
+  </Item>
+</AML>

@@ -1,4 +1,4 @@
-<AML>
+﻿<AML>
  <Item type="Life Cycle Map" id="2DA3DDD1BD144B6B9D9B2EC245A8A88E" action="add">
   <name>Action Item</name>
   <start_state keyed_name="Open" type="Life Cycle State">3F455026A5F1429281F2F901BA9D5F5B</start_state>
@@ -10,6 +10,7 @@
     <set_not_lockable>0</set_not_lockable>
     <sort_order>256</sort_order>
     <source_id keyed_name="Action Item" type="Life Cycle Map">2DA3DDD1BD144B6B9D9B2EC245A8A88E</source_id>
+    <state_permission_id keyed_name="Action Item - Closed" type="Permission">A23859F817D24CB0901708B1CBA3AE2C</state_permission_id>
     <x>217</x>
     <y>39</y>
    </Item>

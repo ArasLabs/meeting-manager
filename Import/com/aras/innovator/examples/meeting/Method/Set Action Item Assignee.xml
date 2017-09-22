@@ -1,12 +1,34 @@
-<AML>
+﻿<AML>
  <Item type="Method" id="F08D1B63A42C45729A102AECCDE763E2" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
   <method_code><![CDATA[// Set Action Item Assignee
 //
 // Sets the 'owned_by_id' property of the Action Item, based on the value of the 'assignee' property.  Called
 //  OnBeforeAdd & OnBeforeUpdate on Action Item
 
-this.setProperty("owned_by_id",this.getProperty("assignee",""));
-return this;]]></method_code>
+Innovator inn = this.getInnovator();
+string owner = this.getProperty("assignee");
+
+if (!string.IsNullOrEmpty(owner))	
+{  
+   //Resolved issue when updating Action Item without changing assignee
+   try
+   {
+   	   Item identItem = inn.getItemByKeyedName("Identity", owner);
+	   this.setProperty("owned_by_id", identItem.getID());	
+   }
+   catch
+   {
+   	   this.setProperty("owned_by_id", this.getProperty("assignee", ""));
+   }  
+}
+
+return this;
+
+
+
+    
+]]></method_code>
   <method_type>C#</method_type>
   <name>Set Action Item Assignee</name>
  </Item>

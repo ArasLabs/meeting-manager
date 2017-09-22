@@ -1,4 +1,4 @@
-<AML>
+﻿<AML>
  <Item type="Form" id="EC8AE50427ED4E1189020F2020CBCE22" action="add">
   <name>Action Item Deliverable</name>
   <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
@@ -53,7 +53,7 @@
       <font_weight>bold</font_weight>
       <is_disabled>0</is_disabled>
       <is_visible>1</is_visible>
-      <label>ItemType</label>
+      <label xml:lang="en">ItemType</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
       <name>itemtype</name>

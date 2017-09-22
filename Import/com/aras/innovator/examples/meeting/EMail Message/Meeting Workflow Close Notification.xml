@@ -1,5 +1,5 @@
 ﻿<AML>
- <Item type="EMail Message" id="ED2E46154E5C4E19887005DF42DEEF0D" action="add">
+ <Item type="EMail Message" id="DE1A56DE55554A82951BDBA70BF324A6" action="add">
   <body_html>&lt;HEAD&gt;
 	&lt;TITLE&gt;&lt;/TITLE&gt;
 	&lt;META content="MSHTML 6.00.2900.2802" name=GENERATOR&gt;
@@ -8,10 +8,16 @@
 	&lt;font size="+1"&gt;
 		&lt;p&gt;
 			&lt;!-- Item Type --&gt;
-			You have been assigned a new ${Item[@type="ItemType"]/label} activity in Aras Innovator (details below).&lt;br/&gt;
-			Please log in to Innovator to complete the work.
+			Workflow complete for ${Item[@type="ItemType"]/label} in Aras Innovator (details below).&lt;br/&gt;
+			Please log in to Innovator to see further information.
 		&lt;/p&gt;
 		&lt;p&gt;
+			&lt;!-- Activity Name --&gt;
+			&lt;font size="+0" style="font-variant:small-caps"&gt;
+				Finish State:
+			&lt;/font&gt;
+			${Item[@type="Activity"]/name}
+			&lt;br/&gt;
 			&lt;font size="+0" style="font-variant:small-caps"&gt;
 				Direct Link:
 			&lt;/font&gt;
@@ -37,30 +43,20 @@
 			
 			&lt;!-- Item Problem Description --&gt;
 			&lt;font size="+0" style="font-variant:small-caps"&gt;
-				Title:
+				Issue:
 			&lt;/font&gt;
 			${Item[2]/description}
 		&lt;/p&gt;
 		&lt;p&gt;
-			&lt;!-- Activity Name --&gt;
-			&lt;font size="+0" style="font-variant:small-caps"&gt;
-				Activity:
-			&lt;/font&gt;
-			${Item[@type="Activity"]/name}
-			&lt;br/&gt;
-			&lt;!-- Activity Message --&gt;
-			&lt;font size="+0" style="font-variant:small-caps"&gt;
-				Instructions:
-			&lt;/font&gt;
-			${Item[@type="Activity"]/message}
+
 		&lt;/p&gt;
 	&lt;/font&gt;
 &lt;/BODY&gt;</body_html>
   <from_user keyed_name="Innovator Admin" type="User">30B991F927274FA3829655F50C99472E</from_user>
-  <name>Action Item</name>
+  <name>Meeting Workflow Close Notification</name>
   <query_string>&lt;Item type="Activity" id="${Item/ActivityId}" action="get" select="name,message"/&gt;
 &lt;Item type="${Item/@type}" id="${Item/@id}" action="get" select="item_number,description"/&gt;
 &lt;Item type="ItemType" id="${Item/@typeId}" action="get" select="label"/&gt;</query_string>
-  <subject>Action Item ${Item[@type="ItemType"]/label} Activity: ${Item[@type="Activity"]/name} for ${Item[2]/item_number}</subject>
+  <subject>Notification for ${Item[@type="ItemType"]/label}: ${Item[2]/item_number}</subject>
  </Item>
 </AML>

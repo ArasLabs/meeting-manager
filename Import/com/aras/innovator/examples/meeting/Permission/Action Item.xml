@@ -1,4 +1,4 @@
-<AML>
+﻿<AML>
  <Item type="Permission" id="4A616CE6BC634D86AA59746C7112C3FF" action="add">
   <is_private>0</is_private>
   <name>Action Item</name>
@@ -6,6 +6,7 @@
    <Item type="Access" id="7D6F0ED9D4A64896803BE2926ECBD298" action="add">
     <can_change_access>1</can_change_access>
     <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
     <can_get>1</can_get>
     <can_update>1</can_update>
     <related_id keyed_name="Creator" type="Identity">
@@ -13,12 +14,14 @@
       <name>Creator</name>
      </Item>
     </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
     <sort_order>256</sort_order>
     <source_id keyed_name="Action Item" type="Permission">4A616CE6BC634D86AA59746C7112C3FF</source_id>
    </Item>
    <Item type="Access" id="EF66731B19DC4C2AAC1F3804A65743A7" action="add">
     <can_change_access>1</can_change_access>
     <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
     <can_get>1</can_get>
     <can_update>1</can_update>
     <related_id keyed_name="Manager" type="Identity">
@@ -26,6 +29,7 @@
       <name>Manager</name>
      </Item>
     </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
     <sort_order>512</sort_order>
     <source_id keyed_name="Action Item" type="Permission">4A616CE6BC634D86AA59746C7112C3FF</source_id>
    </Item>
@@ -33,6 +37,7 @@
    <Item type="Access" id="7FB216A38CEE4080B02653A70E55D991" action="add">
     <can_change_access>1</can_change_access>
     <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
     <can_get>1</can_get>
     <can_update>1</can_update>
     <related_id keyed_name="Owner" type="Identity">
@@ -40,12 +45,14 @@
       <name>Owner</name>
      </Item>
     </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
     <sort_order>384</sort_order>
     <source_id keyed_name="Action Item" type="Permission">4A616CE6BC634D86AA59746C7112C3FF</source_id>
    </Item>
    <Item type="Access" id="63AEABCC248C4C538D81696269EE54F8" action="add">
     <can_change_access>0</can_change_access>
     <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
     <can_get>1</can_get>
     <can_update>0</can_update>
     <related_id keyed_name="World" type="Identity">
@@ -53,6 +60,7 @@
       <name>World</name>
      </Item>
     </related_id>
+    <show_permissions_warning>0</show_permissions_warning>
     <sort_order>128</sort_order>
     <source_id keyed_name="Action Item" type="Permission">4A616CE6BC634D86AA59746C7112C3FF</source_id>
    </Item></Relationships>

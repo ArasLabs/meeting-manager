@@ -1,0 +1,79 @@
+﻿<AML>
+ <Item type="Method" id="92509511DC404AA7940150739300958E" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Innovator inn = this.getInnovator();
+
+//System.Diagnostics.Debugger.Break();
+
+Item controlledItem = this.newItem(this.getAttribute("type"), "Get Controlled Item");
+controlledItem.setID(this.getID());
+controlledItem = controlledItem.apply();
+if (controlledItem.getItemCount() != 1) {
+	return inn.newError("Error retrieving the controlled item:" + controlledItem.getErrorDetail());
+}
+
+      
+Item wflProcTemp = inn.getItemByKeyedName("Workflow Process", controlledItem.getProperty("item_number"));
+string wflProcId = wflProcTemp.getID();
+
+Item wflProc = this.newItem("Workflow Process", "get");
+wflProc.setAttribute("select", "id");
+wflProc.setID(wflProcId);
+
+Item actRel = wflProc.createRelationship("Workflow Process Activity", "get");
+actRel.setAttribute("select", "id,related_id(name,state,is_start,priority)");
+actRel.setAttribute("orderBy", "created_on");
+actRel.setAttribute("related_expand","1");
+wflProc = wflProc.apply();
+if (wflProc.getItemCount() != 1) return inn.newError("Error retrieving workflow process: " + wflProc.getErrorDetail());
+
+// Edit the Workflow Process to set its name and some Activity properties
+wflProc.setAction("edit");
+wflProc.setProperty("name", controlledItem.getProperty("item_number"));
+Item acts = wflProc.getItemsByXPath("Relationships/Item[@type='Workflow Process Activity'][related_id/Item[priority='3']]");
+for (int i = 0; i < acts.getItemCount(); i++)
+{
+  acts.getItemByIndex(i).setAction("edit");
+  acts.getItemByIndex(i).getRelatedItem().setAction("edit");
+  acts.getItemByIndex(i).getRelatedItem().setProperty("managed_by_id", controlledItem.getProperty("owned_by_id", ""));
+}
+Item wfl = wflProc.apply();
+if (wfl.isError()) return inn.newError("Error editing workflow process: " + wfl.getErrorDetail());
+      
+acts = wflProc.getItemsByXPath("Relationships/Item[@type='Workflow Process Activity']/related_id/Item[priority='2']");
+//Activate hold activity condition
+int iTotalItems = acts.getItemCount();
+int iCounter = 0;
+for (int i = 0; i <iTotalItems; i++)
+{
+    Item thisAct = this.newItem();
+    thisAct.loadAML(acts.getItemByIndex(i).node.OuterXml);
+    if (thisAct.getProperty("state") == "Closed" || thisAct.getProperty("state") == "Cancelled")
+    {
+        iCounter = iCounter + 1;
+    }
+}
+//Set hold to active hold activity if all action items are closed or cancelled
+if (iCounter == (iTotalItems - 1))
+{ 
+	Item actHolds = wflProc.getItemsByXPath("Relationships/Item[@type='Workflow Process Activity']/related_id/Item[priority='3']");
+    Item thisAct = this.newItem();
+    thisAct.loadAML(actHolds.getItemByIndex(0).node.OuterXml);    
+		    
+	//turn wait for all input off
+	Item eItm = inn.newItem("Activity", "edit");
+	eItm.setProperty("wait_for_all_inputs", "0");
+	eItm.setID(thisAct.getID());
+	eItm = eItm.apply();
+
+	thisAct.setAction("edit");
+	thisAct.setProperty("managed_by_id", this.getProperty("owned_by_id", ""));
+    thisAct = thisAct.apply("ActivateActivity");
+    if (thisAct.isError()) return inn.newError("Error activating activity : " + thisAct.getErrorDetail());
+}
+
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>Meeting_ValidateOnVote</name>
+ </Item>
+</AML>

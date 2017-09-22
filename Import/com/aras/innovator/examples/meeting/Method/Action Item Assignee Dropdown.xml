@@ -1,66 +1,82 @@
-<AML>
+﻿<AML>
  <Item type="Method" id="C573C4E20F4948EE92546918E4FB6A53" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
   <method_code><![CDATA[// Action Item Assignee Dropdown
-//
-// Populate the 'Assignee' dropdown list with values from the Participants tab.  Called OnEditStart
-//  from the assignee Property.
+      //
+      // Populate the 'Assignee' dropdown list with values from the Participants tab.  Called OnEditStart
+      //  from the assignee Property.
 
-// Check for the existence of the grid and the current column (colNumber)
-var targetColumnIndex = colNumber;
-if (targetColumnIndex < 0) { top.aras.AlertError("Error: Column not found"); return; }
-if (!gridApplet) { return; }
+      // Check for the existence of the grid and the current column (colNumber)
 
-// Get the parent Meeting item
-var thisItem = top.frames["instance"].document.thisItem;
-if (!thisItem) { top.aras.AlertError("Error: Parent item not found"); return; }
+      var targetColumnIndex = colNumber;
+      if (targetColumnIndex < 0) { top.aras.AlertError("Error: Column not found"); return; }
+      if (!gridApplet) { return; }
 
-// If it hasn't already been done, get the participants from the server and store them locally
-if ((!parent.participantIds || !parent.participantNames) && thisItem.getAction()!="add") {
- parent.participantIds = new Array();
- parent.participantNames = new Array();
- var meetingItem = thisItem.newItem(thisItem.getType(),"get");
- meetingItem.setID(thisItem.getID());
- meetingItem.setAttribute("select","id");
- var participantItem = meetingItem.createRelationship("Meeting Participant","get");
- participantItem.setAttribute("select","id,related_id");
- participantItem.setAttribute("related_expand","0");
- meetingItem = meetingItem.apply();
- if (meetingItem.isError()) {
-  top.aras.AlertError("Error retrieving participants: "+meetingItem.getErrorDetail());
-  return false;
- }
- // Build arrays for the participant ids and names
- participantItem = meetingItem.getItemsByXPath("Relationships/Item[@type='Meeting Participant']");
- for (var i=0; i<participantItem.getItemCount(); i++) {
-  parent.participantIds[i] = participantItem.getItemByIndex(i).getProperty("related_id","");
-  parent.participantNames[i] = participantItem.getItemByIndex(i).getPropertyAttribute("related_id","keyed_name","");
- }
-}
+      // Get the parent Meeting item
+      var thisItem = top.frames["instance"].document.thisItem;
+      if (!thisItem) { top.aras.AlertError("Error: Parent item not found"); return; }
 
-// Create arrays for the list values (ids) and labels (names)
-var nameArray = new Array(" ");
-var idArray = new Array(" ");
-var tempItem;
-// Add all participants that have been saved and are not pending deletion
-if (parent.participantIds) {
- for (var j=0; j<parent.participantIds.length; j++) {
-  var pId = parent.participantIds[j];
-  tempItem = thisItem.getItemsByXPath("Relationships/Item[@type='Meeting Participant'][@action='delete'][related_id='"+pId+"' or related_id/Item/@id='"+pId+"']");
-  if (tempItem.getItemCount() < 1) {
-   idArray.push(pId);
-   nameArray.push(parent.participantNames[j]);
-  }
- }
-}
-// Add all participants that have not yet been saved
-tempItem = thisItem.getItemsByXPath("Relationships/Item[@type='Meeting Participant'][@action='add']");
-for (var k=0; k<tempItem.getItemCount(); k++) {
-  idArray.push(tempItem.getItemByIndex(k).getProperty("related_id"));
-  nameArray.push(tempItem.getItemByIndex(k).getRelatedItem().getProperty("name","")); 
-}
-// Add the dropdown to the cell
-gridApplet.cells(relationshipID,targetColumnIndex).setEditType(2);
-gridApplet.cells(relationshipID,targetColumnIndex).setCombo(nameArray.join("|"), idArray.join("|"));]]></method_code>
+      // If it hasn't already been done, get the participants from the server and store them locally
+      if ((!parent.participantIds || !parent.participantNames) && thisItem.getAction() != "add")
+      {
+          parent.participantIds = new Array();
+          parent.participantNames = new Array();
+
+          var meetingItem = thisItem.newItem(thisItem.getType(), "get");
+          meetingItem.setID(thisItem.getID());
+          meetingItem.setAttribute("select", "id");
+          var participantItem = meetingItem.createRelationship("Meeting Participant", "get");
+          participantItem.setAttribute("select", "id,related_id");
+          participantItem.setAttribute("related_expand", "0");
+          meetingItem = meetingItem.apply();
+          if (meetingItem.isError())
+          {
+              top.aras.AlertError("Error retrieving participants: " + meetingItem.getErrorDetail());
+              return false;
+          }
+          // Build arrays for the participant ids and names
+          participantItem = meetingItem.getItemsByXPath("Relationships/Item[@type='Meeting Participant']");
+          for (var i = 0; i < participantItem.getItemCount(); i++)
+          {
+              parent.participantIds[i] = participantItem.getItemByIndex(i).getProperty("related_id", "");
+              parent.participantNames[i] = participantItem.getItemByIndex(i).getPropertyAttribute("related_id", "keyed_name", "");
+          }
+      }
+
+      // Create arrays for the list values (ids) and labels (names)
+      var nameArray = new Array();
+      var idArray = new Array();
+      // Add all participants that have been saved and are not pending deletion
+      // Dont add the current assignee to the array
+      var existAssignee = gridApplet.cells(relationshipID, targetColumnIndex).GetText();
+      if (parent.participantIds)
+      {
+          for (var j = 0; j < parent.participantIds.length; j++)
+          {
+              var pId = parent.participantIds[j];
+              tempItem = thisItem.getItemsByXPath("Relationships/Item[@type='Meeting Participant'][@action='delete'][related_id='" + pId + "' or related_id/Item/@id='" + pId + "']");
+              if (tempItem.getItemCount() < 1 && (existAssignee != parent.participantNames[j]))
+              {
+                  idArray.push(pId);
+                  nameArray.push(parent.participantNames[j]);
+              }
+          }
+      }
+
+      // Add all participants that have not yet been saved
+      tempItem = thisItem.getItemsByXPath("Relationships/Item[@type='Meeting Participant'][@action='add']");
+      for (var k = 0; k < tempItem.getItemCount(); k++)
+      {
+          idArray.push(tempItem.getItemByIndex(k).getProperty("related_id"));
+          nameArray.push(tempItem.getItemByIndex(k).getRelatedItem().getProperty("name", ""));
+      }
+      var delim = gridApplet.Delimeter;
+      // Add the dropdown to the cell
+
+      gridApplet.cells(relationshipID, targetColumnIndex).setEditType(2, 0);
+      gridApplet.cells(relationshipID, targetColumnIndex).setCombo(nameArray.join(delim), idArray.join(delim));
+
+      ]]></method_code>
   <method_type>JavaScript</method_type>
   <name>Action Item Assignee Dropdown</name>
  </Item>

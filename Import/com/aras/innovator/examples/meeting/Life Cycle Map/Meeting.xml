@@ -1,4 +1,4 @@
-<AML>
+﻿<AML>
  <Item type="Life Cycle Map" id="B0A72D9201A9438CB241EE7073B38F2E" action="add">
   <description>Meeting Lifecycle</description>
   <name>Meeting</name>
@@ -48,11 +48,36 @@
       <name>Owner</name>
      </Item>
     </role>
+    <segments>275,62</segments>
     <sort_order>256</sort_order>
     <source_id keyed_name="Meeting" type="Life Cycle Map">B0A72D9201A9438CB241EE7073B38F2E</source_id>
     <to_state keyed_name="Closed" type="Life Cycle State">D47C1727076446FFB507ABDB43AC0DF9</to_state>
+    <x>40</x>
+    <y>-42</y>
+   </Item>
+   <Item type="Life Cycle Transition" id="F40E68311EDF43EAA42631BD77DB8A1B" action="add">
+    <from_state keyed_name="Open" type="Life Cycle State">BFFF80E808534023BF8AB9A1E4D445B6</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <segments></segments>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Meeting" type="Life Cycle Map">B0A72D9201A9438CB241EE7073B38F2E</source_id>
+    <to_state keyed_name="Closed" type="Life Cycle State">D47C1727076446FFB507ABDB43AC0DF9</to_state>
+    <x>26</x>
+    <y>-3</y>
    </Item>
   
+   <Item type="Life Cycle Transition" id="B0E09587F5924F208188A97CA918CDA7" action="add">
+    <from_state keyed_name="Planned" type="Life Cycle State">2AE1E23412AA40D2B83BF28131B5989A</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Aras PLM" type="Identity">56A96DA9E981481688563E2D14D5D878</role>
+    <segments>213,179</segments>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Meeting" type="Life Cycle Map">B0A72D9201A9438CB241EE7073B38F2E</source_id>
+    <to_state keyed_name="Closed" type="Life Cycle State">D47C1727076446FFB507ABDB43AC0DF9</to_state>
+    <x>101</x>
+    <y>96</y>
+   </Item>
    <Item type="Life Cycle Transition" id="8EF9AFF80FD04144B46B4D2DF756E577" action="add">
     <from_state keyed_name="Planned" type="Life Cycle State">2AE1E23412AA40D2B83BF28131B5989A</from_state>
     <get_comment>0</get_comment>

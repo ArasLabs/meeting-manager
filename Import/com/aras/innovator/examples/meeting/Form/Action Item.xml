@@ -1,4 +1,4 @@
-<AML>
+﻿<AML>
  <Item type="Form" id="39BD6A97091D49B2AF35A44AF96D3954" action="add">
   <name>Action Item</name>
   <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
@@ -22,7 +22,7 @@
       <font_weight>bold</font_weight>
       <is_disabled>0</is_disabled>
       <is_visible>1</is_visible>
-      <label>Description</label>
+      <label xml:lang="en">Description</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
       <name>description</name>
@@ -47,7 +47,7 @@
       <font_weight>bold</font_weight>
       <is_disabled>0</is_disabled>
       <is_visible>1</is_visible>
-      <label>Due Date</label>
+      <label xml:lang="en">Due Date</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
       <name>due_date</name>
@@ -102,7 +102,7 @@
       <font_weight>bold</font_weight>
       <is_disabled>0</is_disabled>
       <is_visible>1</is_visible>
-      <label>Notes</label>
+      <label xml:lang="en">Notes</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
       <name>notes</name>
@@ -127,7 +127,7 @@
       <font_weight>bold</font_weight>
       <is_disabled>0</is_disabled>
       <is_visible>1</is_visible>
-      <label>Assignee</label>
+      <label xml:lang="en">Assignee</label>
       <label_position>top</label_position>
       <list_no_blank>0</list_no_blank>
       <name>owned_by_id</name>

@@ -1,11 +1,11 @@
 ﻿<AML>
- <Item type="Permission" id="46C52F1616924560BE69EA48E23FFDA1" action="add">
+ <Item type="Permission" id="A23859F817D24CB0901708B1CBA3AE2C" action="add">
   <is_private>0</is_private>
-  <name>Open Meeting</name>
+  <name>Action Item - Closed</name>
   <Relationships>
-   <Item type="Access" id="C2FC329E455D44ACB1F928896524C5D4" action="add">
+   <Item type="Access" id="DDE654AA6F3445908CC58B253F161F53" action="add">
     <can_change_access>1</can_change_access>
-    <can_delete>1</can_delete>
+    <can_delete>0</can_delete>
     <can_discover>1</can_discover>
     <can_get>1</can_get>
     <can_update>1</can_update>
@@ -15,12 +15,13 @@
      </Item>
     </related_id>
     <show_permissions_warning>0</show_permissions_warning>
-    <sort_order>128</sort_order>
-    <source_id keyed_name="Open Meeting" type="Permission">46C52F1616924560BE69EA48E23FFDA1</source_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Action Item - Closed" type="Permission">A23859F817D24CB0901708B1CBA3AE2C</source_id>
    </Item>
-   <Item type="Access" id="78C936B21D684759B6BC9B3A0A2C4C77" action="add">
+  
+   <Item type="Access" id="80199ADF5BA9406FA02F33B83AB970DE" action="add">
     <can_change_access>1</can_change_access>
-    <can_delete>1</can_delete>
+    <can_delete>0</can_delete>
     <can_discover>1</can_discover>
     <can_get>1</can_get>
     <can_update>1</can_update>
@@ -31,11 +32,11 @@
     </related_id>
     <show_permissions_warning>0</show_permissions_warning>
     <sort_order>512</sort_order>
-    <source_id keyed_name="Open Meeting" type="Permission">46C52F1616924560BE69EA48E23FFDA1</source_id>
+    <source_id keyed_name="Action Item - Closed" type="Permission">A23859F817D24CB0901708B1CBA3AE2C</source_id>
    </Item>
-   <Item type="Access" id="C6C206B86E554B0386B48927F2F2356B" action="add">
+   <Item type="Access" id="16631F5E85CB4D97BB2656264602D08A" action="add">
     <can_change_access>1</can_change_access>
-    <can_delete>1</can_delete>
+    <can_delete>0</can_delete>
     <can_discover>1</can_discover>
     <can_get>1</can_get>
     <can_update>1</can_update>
@@ -46,10 +47,9 @@
     </related_id>
     <show_permissions_warning>0</show_permissions_warning>
     <sort_order>384</sort_order>
-    <source_id keyed_name="Open Meeting" type="Permission">46C52F1616924560BE69EA48E23FFDA1</source_id>
+    <source_id keyed_name="Action Item - Closed" type="Permission">A23859F817D24CB0901708B1CBA3AE2C</source_id>
    </Item>
-  
-   <Item type="Access" id="3C280C84E0774CDD9CA72CBA30D83734" action="add">
+   <Item type="Access" id="BF593D4F6C37442598C0FE9E226759F4" action="add">
     <can_change_access>0</can_change_access>
     <can_delete>0</can_delete>
     <can_discover>1</can_discover>
@@ -61,8 +61,8 @@
      </Item>
     </related_id>
     <show_permissions_warning>0</show_permissions_warning>
-    <sort_order>256</sort_order>
-    <source_id keyed_name="Open Meeting" type="Permission">46C52F1616924560BE69EA48E23FFDA1</source_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item - Closed" type="Permission">A23859F817D24CB0901708B1CBA3AE2C</source_id>
    </Item></Relationships>
  </Item>
 </AML>

@@ -1,22 +1,29 @@
-<AML>
+﻿<AML>
  <Item type="ItemType" id="A42B5D51473B4FCDAAA03965DFEB3832" action="add">
   <allow_private_permission>1</allow_private_permission>
   <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
   <hide_where_used>0</hide_where_used>
   <implementation_type>polymorphic</implementation_type>
   <instance_data>ACTION_ITEM_DELIVERABLE</instance_data>
   <is_dependent>0</is_dependent>
   <is_relationship>0</is_relationship>
   <is_versionable>1</is_versionable>
-  <label>Deliverable</label>
-  <label_plural>Deliverables</label_plural>
+  <label xml:lang="en">Deliverable</label>
+  <label_plural xml:lang="en">Deliverables</label_plural>
   <manual_versioning>0</manual_versioning>
   <name>Action Item Deliverable</name>
-  <save_history>0</save_history>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
   <show_parameters_tab>1</show_parameters_tab>
   <unlock_on_logout>0</unlock_on_logout>
   <use_src_access>0</use_src_access>
   <Relationships>
+   <Item type="ItemType Life Cycle" id="3E1EE0E39CB2477799EC160D011F00EF" action="add">
+    <related_id keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
+   </Item>
+  
    <Item type="Property" id="B06F692DCB0A4D4994F4A2A96909FB73" action="add">
     <column_alignment>left</column_alignment>
     <column_width>250</column_width>
@@ -27,13 +34,14 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>Description</label>
+    <label xml:lang="en">Description</label>
     <name>description</name>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>768</sort_order>
     <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
     <stored_length>256</stored_length>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" id="D63080EF92484E0B952EC1AABE695FEB" action="add">
     <column_alignment>left</column_alignment>
@@ -46,7 +54,7 @@
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
     <keyed_name_order>0</keyed_name_order>
-    <label>Number</label>
+    <label xml:lang="en">Number</label>
     <name>item_number</name>
     <order_by>0</order_by>
     <range_inclusive>0</range_inclusive>
@@ -54,6 +62,7 @@
     <sort_order>256</sort_order>
     <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
     <stored_length>32</stored_length>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" id="5695CB6B88BD48C89623F4D4B3230923" action="add">
     <column_alignment>left</column_alignment>
@@ -65,13 +74,14 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>Name</label>
+    <label xml:lang="en">Name</label>
     <name>name</name>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>512</sort_order>
     <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
     <stored_length>64</stored_length>
+    <track_history>0</track_history>
    </Item>
    <Item type="Server Event" id="7E546C88A38C4B93B846186227AE7AC6" action="add">
     <related_id keyed_name="polymorphic_item_onBeforeAdd" type="Method">
@@ -154,8 +164,7 @@
     <sort_order>128</sort_order>
     <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
     <type>default</type>
-   </Item>
-  </Relationships>
+   </Item></Relationships>
  </Item>
  <Item type="ItemType" id="A42B5D51473B4FCDAAA03965DFEB3832" action="edit">
   <Relationships>
@@ -169,13 +178,30 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>Type</label>
+    <label xml:lang="en">Type</label>
     <name>classification</name>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>512</sort_order>
     <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
     <stored_length>512</stored_length>
+    <track_history>0</track_history>
+   </Item>
+   <Item type="Property" action="edit" where="source_id='A42B5D51473B4FCDAAA03965DFEB3832' and name='generation'">
+    <column_alignment>left</column_alignment>
+    <data_type>integer</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <name>generation</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>1</readonly>
+    <sort_order>3328</sort_order>
+    <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" action="edit" where="source_id='A42B5D51473B4FCDAAA03965DFEB3832' and name='itemtype'">
     <column_alignment>left</column_alignment>
@@ -188,12 +214,13 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>ItemType</label>
+    <label xml:lang="en">ItemType</label>
     <name>itemtype</name>
     <range_inclusive>0</range_inclusive>
     <readonly>1</readonly>
     <sort_order>128</sort_order>
     <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" action="edit" where="source_id='A42B5D51473B4FCDAAA03965DFEB3832' and name='major_rev'">
     <column_alignment>center</column_alignment>
@@ -205,13 +232,14 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>Revision</label>
+    <label xml:lang="en">Revision</label>
     <name>major_rev</name>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>384</sort_order>
     <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
     <stored_length>8</stored_length>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" action="edit" where="source_id='A42B5D51473B4FCDAAA03965DFEB3832' and name='state'">
     <column_alignment>left</column_alignment>
@@ -223,13 +251,14 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>State</label>
+    <label xml:lang="en">State</label>
     <name>state</name>
     <range_inclusive>0</range_inclusive>
     <readonly>1</readonly>
     <sort_order>640</sort_order>
     <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
     <stored_length>32</stored_length>
+    <track_history>0</track_history>
    </Item>
    <Item type="Property" action="edit" where="source_id='A42B5D51473B4FCDAAA03965DFEB3832' and name='superseded_date'">
     <column_alignment>left</column_alignment>
@@ -240,13 +269,12 @@
     <is_keyed>0</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
-    <label>Superseded Date</label>
+    <label xml:lang="en">Superseded Date</label>
     <name>superseded_date</name>
-    <pattern>MM/dd/yyyy hh:mm:ss a</pattern>
     <range_inclusive>0</range_inclusive>
     <readonly>0</readonly>
     <sort_order>3456</sort_order>
-    <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>
+    <source_id keyed_name="Action Item Deliverable" type="ItemType" name="Action Item Deliverable">A42B5D51473B4FCDAAA03965DFEB3832</source_id>    <track_history>0</track_history>
    </Item>
   </Relationships>
  </Item>
