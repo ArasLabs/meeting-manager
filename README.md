@@ -14,6 +14,7 @@ This project and the following release notes have been migrated from the old Ara
 
 Release | Notes
 --------|--------
+[v1.3](https://github.com/ArasLabs/meeting-manager/releases/tag/v1.3) | Fixes an issue with long Action Item descriptions
 [v1.2](https://github.com/ArasLabs/meeting-manager/releases/tag/v1.2) | Updated to work with 8.2.0 and 9.0.1
 [v1](https://github.com/ArasLabs/meeting-manager/releases/tag/v1) | Initial Version
 
@@ -21,6 +22,7 @@ Release | Notes
 
 Project | Aras
 --------|------
+[v1.3](https://github.com/ArasLabs/meeting-manager/releases/tag/v1.3) | 8.2.0, 9.0.1
 [v1.2](https://github.com/ArasLabs/meeting-manager/releases/tag/v1.2) | 8.2.0, 9.0.1
 [v1](https://github.com/ArasLabs/meeting-manager/releases/tag/v1) | 8.1.1
 
